@@ -26,7 +26,13 @@ function New-HaloPSATicket {
         details_html               = $description
         donotapplytemplateintheapi = $true
         attachments                = @()
+# edited to pass the category       
+        customfields               = @{
+            id            = 416
+            value = 7
+        }
     }
+
 
     if ($Configuration.TicketType) {
         $object | Add-Member -MemberType NoteProperty -Name 'tickettype_id' -Value $Configuration.TicketType -Force
